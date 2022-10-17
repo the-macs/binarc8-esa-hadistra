@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  font-family: 'segoe ui';
+}
+
+
+/* width */
+body::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background: #FFB548;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: bisque;
+}

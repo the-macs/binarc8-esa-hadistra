@@ -1,0 +1,109 @@
+.nav {
+    height: 60px;
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.7);
+    position: absolute;
+    z-index: 999;
+}
+
+.nav>.navHeader {
+    display: inline;
+}
+
+.nav>.navHeader>.navBrand {
+    display: inline-block;
+}
+
+.nav>.navHeader>.navBrand>a>img {
+    display: inline-block;
+    max-width: 7em;
+    padding: 0.3em 1.3em 0.3em 2em;
+}
+
+.nav>.navBtn {
+    display: none;
+}
+
+.nav>.navLinks {
+    display: inline;
+    float: right;
+    font-size: 18px;
+}
+
+.nav>.navLinks>a {
+    display: inline-block;
+    padding: 18px 10px;
+    text-decoration: none;
+    color: #efefef;
+    font-weight: bold;
+}
+
+.nav>.navLinks>a:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.nav>#navCheck {
+    display: none;
+}
+
+@media (max-width:768px) {
+    .nav>.navBtn {
+        display: inline-block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+
+    .nav>.navBtn>label {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        padding: 17px 17px;
+        cursor: pointer;
+    }
+
+    .nav>.navBtn>label:hover,
+    .nav #navCheck:checked~.navBtn>label {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .nav>.navBtn>label>span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid #eee;
+    }
+
+    .nav>.navLinks {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: rgba(51, 51, 51, 0.7);
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 60px;
+        bottom: -5rem;
+        left: 0px;
+    }
+
+    .nav>.navLinks>a {
+        display: block;
+        width: 100%;
+    }
+
+    .nav>#navCheck:not(:checked)~.navLinks {
+        height: 0px;
+    }
+
+    .nav>#navCheck:checked~.navLinks {
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+
+    .nav>.navHeader>.navBrand>a>img {
+        display: inline-block;
+        max-width: 6.2em;
+        padding-left: 1em;
+    }
+}
