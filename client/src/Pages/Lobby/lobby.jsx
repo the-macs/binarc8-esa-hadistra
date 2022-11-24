@@ -1,25 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/navbar'
 import LobbyCSS from './lobby.module.scss'
+import axios from './../../Utils/axios'
 
 export default function Home() {
-    const rooms = [
-        { id: 1, name: 'Room 1' },
-        { id: 2, name: 'Room 2' },
-        { id: 3, name: 'Room 3' },
-        { id: 4, name: 'Room 4' },
-        { id: 5, name: 'Room 5' }
-    ]
-
     const navigate = useNavigate()
+    const [data, setData] = useState([])
+
     const handleRoom = (id) => {
         navigate('/room/' + id)
     }
 
     useEffect(() => {
         document.title = 'Lobby';
-    })
+        getRoomAxios()
+    }, [])
+
+    const getRoomAxios = async () => {
+        const { data } = await axios.get('/api/rooms')
+        setData(data.data)
+    }
 
     return (
         <>
@@ -36,7 +37,7 @@ export default function Home() {
                         </tr>
                     </thead>
                     <tbody>
-                        {rooms.map((item) => {
+                        {data.map((item) => {
                             return (
                                 <tr key={item.id}>
                                     <td>{item.id}</td>
